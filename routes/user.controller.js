@@ -13,7 +13,7 @@ async function login(req,res){
         }
 
         const payload = {
-            username: user.username,
+            email: user.email,
             id: user.id
         }
 
@@ -26,9 +26,9 @@ async function login(req,res){
 
     }else{
         // insert the user in the database
-        const username = req.body.username
+        const email = req.body.email
         const password = hashSync(req.body.password,10)
-        const user = await insertUserQuery({username,password})
+        const user = await insertUserQuery({email,password})
         
         return res.json({
             message: "Logged in Successfully",

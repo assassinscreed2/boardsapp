@@ -13,7 +13,7 @@ function insertUserQuery(user){
 
 //return an (Promise)array containing a user (if present)
 async function isUserPresent(user){
-    return knex("users").where("username",user.username)
+    return knex("users").where("email",user.email)
 }
 
 module.exports = {
