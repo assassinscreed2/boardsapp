@@ -14,7 +14,12 @@ function filterArray(articles){
 
 function sortedArray(limit, articles){
     const new_array = filterArray(articles)
-    new_array.sort((a,b) => a.comments - b.comments)
+    new_array.sort((a,b) => {
+        if(a.comments != b.comments){
+            return a.comments - b.comments
+        }else{
+            return a.name - b.name
+        }})
     new_array.reverse()
     if(limit >= new_array.length){
         return new_array
