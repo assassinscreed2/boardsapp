@@ -1,9 +1,5 @@
 const knex = require('./knex')
 
-// function checkUser(user){
-//     knex.select('username').from('users').where('username',user.username)
-// }
-
 async function getUserById(id){
     return await knex("users").where("id",id).first();
 }
@@ -17,15 +13,11 @@ function insertUserQuery(user){
 
 //return an (Promise)array containing a user (if present)
 async function isUserPresent(user){
-    return await knex("users").where("username",user.username)
-}
-
-
-function loginUserQuery(user){
-    isUserPresent(user).then((res)=>console.log(res))
+    return knex("users").where("username",user.username)
 }
 
 module.exports = {
     insertUserQuery,
-    loginUserQuery
+    isUserPresent,
+    getUserById
 }
