@@ -17,7 +17,11 @@ async function putItem(req,res){
         }
     
         const result = await putItemQuery(req.params.id,req.body)
-        res.status(200).json(result)
+        if(result){
+            return res.status(200).json(result)
+        }
+        return res.status(404).json({message:"Enter Correct ID"})
+        
     }catch(e){
         res.status(404).json(e)
     }
