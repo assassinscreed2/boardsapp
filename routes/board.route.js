@@ -1,5 +1,5 @@
 const express = require('express')
-const {postItem,putItem} = require('./board.controller.js')
+const {postItem,putItem} = require('../controllers/board.controller.js')
 const passport = require('passport')
 
 const boardRouter = express.Router();

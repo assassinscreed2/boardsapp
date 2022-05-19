@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const boardRouter = require('./routes/board.route')
 const userRouter = require('./routes/user.route')
+const articleRouter = require('./routes/articles.route')
 const passport = require('passport');
 const helmet = require('helmet');
 
@@ -12,7 +13,9 @@ app.use(passport.initialize())
 require('./auth/passport')
 
 app.use('/boards',boardRouter)
-app.use('',userRouter)
+app.use('/login',userRouter)
+app.use('/articles',articleRouter)
+
 
 app.listen('3000',()=>{
     console.log("server is started")
