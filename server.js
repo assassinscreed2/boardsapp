@@ -8,10 +8,12 @@ const helmet = require('helmet');
 
 //parses incoming request
 app.use(express.json())
+
 app.use(helmet())
 app.use(passport.initialize())
 require('./auth/passport')
 
+//routes
 app.use('/boards',boardRouter)
 app.use('/login',userRouter)
 app.use('/articles',articleRouter)

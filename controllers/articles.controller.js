@@ -33,14 +33,13 @@ async function fetchedArray(limit){
     }
 
     const sorted_array = sortedArray(limit,full_array)
-   // console.log(sorted_array)
     const newsorted_array = sorted_array.map((article)=>{return article.name})
     return newsorted_array
 }
 
 async function responseArticles(req,res){
     const result = await fetchedArray(req.params.limit)
-    res.json(result)
+    res.status(200).json(result)
 }
 
 module.exports = {

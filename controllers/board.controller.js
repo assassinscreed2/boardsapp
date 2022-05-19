@@ -5,7 +5,7 @@ async function postItem(req,res){
         const result = await postItemQuery(req.body)
         res.status(201).json(result)
     }catch(e){
-        res.json(e)
+        res.status(404).json(e)
     }
     
 }
@@ -19,7 +19,7 @@ async function putItem(req,res){
         const result = await putItemQuery(req.params.id,req.body)
         res.status(200).json(result)
     }catch(e){
-        res.json(e)
+        res.status(404).json(e)
     }
 }
 
