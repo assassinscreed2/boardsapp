@@ -14,10 +14,6 @@ require('./auth/passport')
 app.use('/boards',boardRouter)
 app.use('',userRouter)
 
-app.get('/protected',passport.authenticate('jwt',{session:false}),(req,res)=>{
-res.json({user:req.user})
-})
-
 app.listen('3000',()=>{
     console.log("server is started")
 })

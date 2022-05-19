@@ -3,7 +3,6 @@ const {hashSync, compareSync} = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 async function login(req,res){
-    console.log(req)
     const data = await isUserPresent(req.body)
     if(data.length != 0){
         //user is already present inside the database
